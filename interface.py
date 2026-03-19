@@ -8,7 +8,7 @@ def iniciar_interface():
         f = float(entrada_f.get())
         k = float(entrada_k.get())
 
-        temp = Temperatura(c, f, 0, k)
+        temp = Temperatura(c, f, k)
 
         resultado.set(
             f"{c}°C -> {(c * 1.8) + 32:.2f}°F.\n"
@@ -17,24 +17,25 @@ def iniciar_interface():
             f"{k}°K -> {k - 273.15:.2f}°C."
         )
 
-janela = tk.Tk()
-janela.title("Converter temperaturas")
+    janela = tk.Tk()
+    janela.title("Converter temperaturas")
+    janela.geometry("300x250")
 
-tk.Label(janela, text="Celsius").pack()
-entrada_c = tk.Entry(janela)
-entrada_c.pack()
+    tk.Label(janela, text="Celsius").pack()
+    entrada_c = tk.Entry(janela)
+    entrada_c.pack()
 
-tk.Label(janela, text="Fahrenheit").pack()
-entrada_f = tk.Entry(janela)
-entrada_f.pack()
+    tk.Label(janela, text="Fahrenheit").pack()
+    entrada_f = tk.Entry(janela)
+    entrada_f.pack()
 
-tk.Label(janela, text="Kelvin").pack()
-entrada_k = tk.Entry(janela)
-entrada_k.pack() 
+    tk.Label(janela, text="Kelvin").pack()
+    entrada_k = tk.Entry(janela)
+    entrada_k.pack() 
 
-tk.Button(janela, text= "Converter", command=converter).pack()
+    tk.Button(janela, text= "Converter", command=converter).pack()
 
-resultado = tk.StringVar()
-tk.Label(janela, textvariable=resultado).pack()
+    resultado = tk.StringVar()
+    tk.Label(janela, textvariable=resultado).pack()
 
-janela.mainloop()
+    janela.mainloop()
